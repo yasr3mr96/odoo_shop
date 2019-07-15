@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_units_tree" model="ir.ui.view">
+            <field name="name">shop.units.tree</field>
+            <field name="model">shop.units</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_units_form" model="ir.ui.view">
+            <field name="name">shop.units.form</field>
+            <field name="model">shop.units</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_units_search" model="ir.ui.view">
+            <field name="name">shop.units.search</field>
+            <field name="model">shop.units</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_units" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.units</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add Units
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_units_action" name="Units" parent="menu_stock" action="action_units" sequence="1"/>
+
+    </data>
+</odoo>

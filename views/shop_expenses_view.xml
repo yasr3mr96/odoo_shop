@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_expenses_tree" model="ir.ui.view">
+            <field name="name">shop.expenses.tree</field>
+            <field name="model">shop.expenses</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="value" sum="Total"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_expenses_form" model="ir.ui.view">
+            <field name="name">shop.expenses.form</field>
+            <field name="model">shop.expenses</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="value"/>
+                        </group>
+                        
+                        <group>
+                            <field name="notes" widget="html"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_expenses_search" model="ir.ui.view">
+            <field name="name">shop.expenses.search</field>
+            <field name="model">shop.expenses</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="value"/>
+                    <field name="date"/>
+                     <filter string="Name" domain="[]" context="{'group_by': 'name'}"/>
+                     <filter string="Date" domain="[]" context="{'group_by': 'date'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_expenses" model="ir.actions.act_window">
+            <field name="name">Expenses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.expenses</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add Expenses
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_expenses_action" name="Expenses" parent="menu_expenses" action="action_expenses" sequence="1"/>
+
+    </data>
+</odoo>

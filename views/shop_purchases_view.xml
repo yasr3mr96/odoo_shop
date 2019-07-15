@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_purchases_tree" model="ir.ui.view">
+            <field name="name">shop.purchases.tree</field>
+            <field name="model">shop.purchases</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="supplier_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_purchases_form" model="ir.ui.view">
+            <field name="name">shop.purchases.form</field>
+            <field name="model">shop.purchases</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="supplier_name"/>
+                            <field name="date"/>
+                        </group>
+                        <field name="products">
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="quantity"/>
+                            </tree>
+                        </field>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_purchases_search" model="ir.ui.view">
+            <field name="name">shop.purchases.search</field>
+            <field name="model">shop.purchases</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="supplier_name"/>
+                    <field name="date"/>
+                     <filter string="Supplier Name" domain="[]" context="{'group_by': 'supplier_name'}"/>
+                     <filter string="Date" domain="[]" context="{'group_by': 'date'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_purchases" model="ir.actions.act_window">
+            <field name="name">Purchases</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.purchases</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add Purchases
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_purchases_action" name="Purchases" parent="menu_purchases" action="action_purchases" sequence="1"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+         <menuitem
+                         id="menu_shop"
+                         name="Shop"
+                         sequence="28"
+          		web_icon="shop,static/description/icon.png"
+
+         />
+
+        <menuitem id="menu_suppliers" name="Suppliers" parent="menu_shop" sequence="1"/>
+        <menuitem id="menu_customers" name="Customers" parent="menu_shop" sequence="2"/>
+        <menuitem id="menu_employees" name="Employees" parent="menu_shop" sequence="3"/>
+        <menuitem id="menu_expenses" name="Expenses" parent="menu_shop" sequence="4"/>
+        <menuitem id="menu_stock" name="Stock" parent="menu_shop" sequence="5"/>
+        <menuitem id="menu_purchases" name="Purchases" parent="menu_shop" sequence="6"/>
+        <menuitem id="menu_sales" name="Sales" parent="menu_shop" sequence="7"/>
+        <menuitem id="menu_income" name="Income" parent="menu_shop" sequence="8"/>
+
+
+    </data>
+</odoo>

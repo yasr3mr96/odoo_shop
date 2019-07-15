@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_suppliers_tree" model="ir.ui.view">
+            <field name="name">shop.suppliers.tree</field>
+            <field name="model">shop.suppliers</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="company_name"/>
+                    <field name="address"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="website"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_suppliers_form" model="ir.ui.view">
+            <field name="name">shop.suppliers.form</field>
+            <field name="model">shop.suppliers</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_name"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="website" widget="url"/>
+                        </group>
+                        <group>
+                            <field name="notes" widget="html"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_suppliers_search" model="ir.ui.view">
+            <field name="name">shop.suppliers.search</field>
+            <field name="model">shop.suppliers</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="company_name"/>
+                    <field name="address"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="website"/>
+                     <filter string="Company Name" domain="[]" context="{'group_by': 'company_name'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_suppliers" model="ir.actions.act_window">
+            <field name="name">Suppliers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.suppliers</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add Suppliers
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_suppliers_action" name="Suppliers" parent="menu_suppliers" action="action_suppliers" sequence="1"/>
+
+    </data>
+</odoo>

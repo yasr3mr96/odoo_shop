@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_sales_tree" model="ir.ui.view">
+            <field name="name">shop.sales.tree</field>
+            <field name="model">shop.sales</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="customer_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_sales_form" model="ir.ui.view">
+            <field name="name">shop.sales.form</field>
+            <field name="model">shop.sales</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="customer_name"/>
+                            <field name="date"/>
+                        </group>
+                        <field name="products">
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="price"/>
+                                <field name="quantity"/>
+                                <field name="totals" sum="Total"/>
+                            </tree>
+                        </field>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_sales_search" model="ir.ui.view">
+            <field name="name">shop.sales.search</field>
+            <field name="model">shop.sales</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="customer_name"/>
+                    <field name="date"/>
+                     <filter string="Customers Name" domain="[]" context="{'group_by': 'customer_name'}"/>
+                     <filter string="Date" domain="[]" context="{'group_by': 'date'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_sales" model="ir.actions.act_window">
+            <field name="name">Sales</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.sales</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add Sales
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_sales_action" name="Sales" parent="menu_sales" action="action_sales" sequence="1"/>
+
+    </data>
+</odoo>

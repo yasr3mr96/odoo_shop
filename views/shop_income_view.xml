@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_income_tree" model="ir.ui.view">
+            <field name="name">shop.income.tree</field>
+            <field name="model">shop.income</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="product_id"/>
+                    <field name="value" sum="Total"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="view_income_search" model="ir.ui.view">
+            <field name="name">shop.income.search</field>
+            <field name="model">shop.income</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="product_id"/>
+                    <field name="value"/>
+                    <field name="date"/>
+                     <filter string="Product Name" domain="[]" context="{'group_by': 'product_id'}"/>
+                     <filter string="Date" domain="[]" context="{'group_by': 'date'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_income" model="ir.actions.act_window">
+            <field name="name">Income</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.income</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add Income
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_income_action" name="Income" parent="menu_income" action="action_income" sequence="1"/>
+
+    </data>
+</odoo>

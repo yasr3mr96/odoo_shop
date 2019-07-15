@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <report
+                id="report_suppliers_view"
+                model="shop.suppliers"
+                report_type="qweb-pdf"
+                string="Suppliers"
+                name="shop.suppliers"
+                file="shop.suppliers"
+        />
+
+
+        <report
+                id="report_customers_view"
+                model="shop.customers"
+                report_type="qweb-pdf"
+                string="Customers"
+                name="shop.customers"
+                file="shop.customers"
+        />
+
+
+        <report
+                id="report_employees_view"
+                model="shop.employees"
+                report_type="qweb-pdf"
+                string="Employees"
+                name="shop.employees"
+                file="shop.employees"
+        />
+
+          <report
+                id="report_expenses_view"
+                model="shop.expenses"
+                report_type="qweb-pdf"
+                string="Expenses"
+                name="shop.expenses"
+                file="shop.expenses"
+        />
+
+         <report
+                id="report_products_view"
+                model="shop.products"
+                report_type="qweb-pdf"
+                string="Products"
+                name="shop.products"
+                file="shop.products"
+        />
+
+        <report
+                id="report_income_view"
+                model="shop.income"
+                report_type="qweb-pdf"
+                string="Income"
+                name="shop.income"
+                file="shop.income"
+        />
+                <report
+                id="report_purchases_view"
+                model="shop.purchases"
+                report_type="qweb-pdf"
+                string="Purchases"
+                name="shop.purchases"
+                file="shop.purchases"
+        />
+<report
+                id="report_sales_view"
+                model="shop.sales"
+                report_type="qweb-pdf"
+                string="sales"
+                name="shop.sales"
+                file="shop.sales"
+        />
+
+
+    </data>
+</odoo>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_customers_tree" model="ir.ui.view">
+            <field name="name">shop.customers.tree</field>
+            <field name="model">shop.customers</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_customers_form" model="ir.ui.view">
+            <field name="name">shop.customers.form</field>
+            <field name="model">shop.customers</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="phone"/>
+                            <field name="email" widget="email"/>
+                        </group>
+                        <group>
+                            <field name="notes" widget="html"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_customers_search" model="ir.ui.view">
+            <field name="name">shop.customers.search</field>
+            <field name="model">shop.customers</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                     <filter string="Address" domain="[]" context="{'group_by': 'address'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_customers" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.customers</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add Customers
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_customers_action" name="Customers" parent="menu_customers" action="action_customers" sequence="1"/>
+
+    </data>
+</odoo>

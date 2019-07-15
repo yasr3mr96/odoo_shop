@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_products_tree" model="ir.ui.view">
+            <field name="name">shop.products.tree</field>
+            <field name="model">shop.products</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="barcode"/>
+                    <field name="quantity"/>
+                    <field name="wholesaleprice"/>
+                    <field name="saleprice"/>
+                    <field name="supplier_name"/>
+                    <field name="unit_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_products_form" model="ir.ui.view">
+            <field name="name">shop.products.form</field>
+            <field name="model">shop.products</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="barcode"/>
+                            <field name="supplier_name"/>
+                        </group>
+                        <group>
+                            <field name="quantity"/>
+                            <field name="unit_name"/>
+                            <field name="wholesaleprice"/>
+                            <field name="saleprice"/>
+                        </group>
+                        <group>
+                            <field name="image" widget="image"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_products_search" model="ir.ui.view">
+            <field name="name">shop.products.search</field>
+            <field name="model">shop.products</field>
+            <field name="arch" type="xml">
+                <search string="">
+                   <field name="name"/>
+                    <field name="barcode"/>
+                    <field name="quantity"/>
+                    <field name="wholesaleprice"/>
+                    <field name="saleprice"/>
+                    <field name="supplier_name"/>
+                    <field name="unit_name"/>
+                     <filter string="Supplier Name" domain="[]" context="{'group_by': 'supplier_name'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_products" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.products</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add Products
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_products_action" name="Products" parent="menu_stock" action="action_products" sequence="2"/>
+
+    </data>
+</odoo>

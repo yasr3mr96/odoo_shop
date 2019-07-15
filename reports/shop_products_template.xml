@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="products">
+			<t t-foreach="docs" t-as="o">
+			<t t-call="report.html_container">
+				<t t-call="report.internal_layout">
+					<div class="page">
+						<style type="text/css">
+							table.gridtable td, th {
+							border: 1px solid #ddd;
+							text-align: left;
+							}
+
+							table.gridtable {
+							border-collapse: collapse;
+							width: 100%;
+							}
+
+							table.gridtable th, td {
+							padding: 5px;
+							}
+							table.report_table {
+							font-size: 14px !important;
+							border-collapse: collapse !important;
+							width: 100% !important;
+							}
+
+							table.report_table th, table.report_table td {
+							padding: 8px !important;
+							text-align: center !important;
+							}
+
+							table.report_table tr:nth-child(even){background-color: #f2f2f2 !important;}
+
+							table.report_table th {
+							background-color: #000080 !important;
+							color: white !important;
+							}
+
+						</style>
+						<h2>Products</h2>
+						<table class="report_table">
+							<tr>
+								 <th>Name</th>
+								 <th>Barcode</th>
+								 <th>Supplier Name</th>
+								 <th>Quantity</th>
+								 <th>unit_name</th>
+								 <th>Wholesale Price</th>
+								 <th>Sale Price</th>
+							</tr>
+							<tr>
+                                    <td>
+                                        <span t-esc="o.name" class="text-right"
+                                              style="white-space: text-nowrap;"/>
+                                    </td>
+
+                                     <td>
+                                        <span t-esc="o.barcode" class="text-right"
+                                              style="white-space: text-nowrap;"/>
+                                    </td>
+
+                                     <td>
+                                        <span t-esc="o.supplier_name.name" class="text-right"
+                                              style="white-space: text-nowrap;"/>
+                                    </td>
+
+                                     <td>
+                                        <span t-esc="o.quantity" class="text-right"
+                                              style="white-space: text-nowrap;"/>
+                                    </td>
+
+                                     <td>
+                                        <span t-esc="o.unit_name.name" class="text-right"
+                                              style="white-space: text-nowrap;"/>
+                                    </td>
+
+								    <td>
+                                        <span t-esc="o.wholesaleprice" class="text-right"
+                                              style="white-space: text-nowrap;"/>
+                                    </td>
+
+								 <td>
+                                        <span t-esc="o.saleprice" class="text-right"
+                                              style="white-space: text-nowrap;"/>
+                                    </td>
+
+                                </tr>
+
+						</table>
+
+
+					</div>
+				</t>
+			</t>
+			</t>
+		</template>
+
+
+
+    </data>
+</odoo>

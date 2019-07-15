@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_employees_tree" model="ir.ui.view">
+            <field name="name">shop.employees.tree</field>
+            <field name="model">shop.employees</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="salary" sum="Total"/>
+                    <field name="address"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_employees_form" model="ir.ui.view">
+            <field name="name">shop.employees.form</field>
+            <field name="model">shop.employees</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="salary"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="phone"/>
+                            <field name="email" widget="email"/>
+                        </group>
+                        <group>
+                            <field name="notes" widget="html"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_employees_search" model="ir.ui.view">
+            <field name="name">shop.employees.search</field>
+            <field name="model">shop.employees</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="salary"/>
+                    <field name="address"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                     <filter string="Salary" domain="[]" context="{'group_by': 'salary'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_employees" model="ir.actions.act_window">
+            <field name="name">Employees</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.employees</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add Employees
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_employees_action" name="Employees" parent="menu_employees" action="action_employees" sequence="1"/>
+
+    </data>
+</odoo>
